@@ -1,0 +1,37 @@
+.layout-flex {
+    padding: var(--space-12);
+}
+
+/* conteneedor principal con flexbox*/
+.layout-flex__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-16);
+}
+
+.layout-flex__cards .card {
+    flex: 0 0 320px;
+    max-width: 320px;
+}
+
+/* en este witdht baja a 2 columnas */
+@media (max-width: 960px) {
+    .layout-flex__cards .card {
+        flex-basis: calc(50% - var(--space-16));
+        max-width: none;
+    }
+}
+
+/* en celular baja a una sola columna */
+@media (max-width: 640px) {
+    .layout-flex {
+        padding: var(--space-8);
+    }
+
+    .layout-flex__cards .card {
+        flex-basis: 100%;
+    }
+}
+
