@@ -1,11 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Galeria de tarjetas</title>
+    <meta
+        name="description"
+        content="Galería de tarjetas con cambio de layout, ordenamiento por cantidad de likes y fecha de publicación."
+    >
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="/assets/favicon/icon.png">
 </head>
 <body>
-    
+    <main>
+        <section class="controls">
+            <button class="controls__button" type="button"><img src="/assets/images/grilla.png" alt="layout flex en grilla"></button>
+            <button class="controls__button" type="button"><img src="/assets/images/feed.png" alt="Layout Feed"></button>
+            <button class="controls__button" type="button">Ordenar por likes</button>
+            <button class="controls__button" type="button">Ordenar por Fecha</button>
+        </section>
+
+        <section class="layout-flex">
+            <div class="layout-flex__cards">
+                <article class="card">
+                    <div class="card__media">
+                        <img class="card__image" src="./assets/images/gatito-arte-cyberpunk.webp" alt="Cyberpunk art" />
+                    </div>
+
+                    <div class="card__content">
+                        <h2 class="card__title">Cyberpunk</h2>
+                        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="card__actions">
+                            <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
+                            <span class="card__likes-count">12</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card__media">
+                        <img class="card__image" src="./assets/images/gatito-arte-realista.png" alt="Realistic art" />
+                    </div>
+
+                    <div class="card__content">
+                        <h2 class="card__title">Realista</h2>
+                        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="card__actions">
+                            <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
+                            <span class="card__likes-count">28</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card__media">
+                        <img class="card__image" src="./assets/images/gattit-arte-pixelart.webp" alt="Pixel art" />
+                    </div>
+
+                    <div class="card__content">
+                        <h2 class="card__title">Pixel Art</h2>
+                        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="card__actions">
+                            <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
+                            <span class="card__likes-count">7</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card__media">
+                        <img class="card__image" src="./assets/images/gatito-arte-minimalista.png" alt="Minimalist art" />
+                    </div>
+
+                    <div class="card__content">
+                        <h2 class="card__title">Minimalista</h2>
+                        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="card__actions">
+                            <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
+                            <span class="card__likes-count">7</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card__media">
+                        <img class="card__image" src="./assets/images/gatita-arte-cartoon.webp" alt="Cartoon art" />
+                    </div>
+
+                    <div class="card__content">
+                        <h2 class="card__title">Cartoon</h2>
+                        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="card__actions">
+                            <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
+                            <span class="card__likes-count">7</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                <div class="card__media">
+                    <img class="card__image" src="./assets/images/gatito-arte-retro.png" alt="Retro art" />
+                </div>
+
+                <div class="card__content">
+                    <h2 class="card__title">Retro</h2>
+                    <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <div class="card__actions">
+                        <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
+                        <span class="card__likes-count">7</span>
+                    </div>
+                </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
 </body>
 </html>
