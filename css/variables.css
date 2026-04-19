@@ -1,0 +1,25 @@
+:root {
+    --color-background: #f5f7fc;
+    --color-text: #1a1d2e;
+    --color-text-soft: #6b7280;
+    --color-accent: #ff6b6b;
+    --color-accent-dark: #ff5252;
+    --color-border: #e5e7eb;
+    --shadow-accent: 0 8px 20px rgba(255, 107, 107, 0.28);
+
+    --font-base: "Helvetica Neue", Arial, sans-serif;
+
+    --space-8: 8px;
+    --space-12: 12px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-40: 40px;
+    --space-48: 48px;
+
+    --font-size-md: 14px;
+    --font-size-lg: 16px;
+
+    --radius-8: 8px;
+    --radius-12: 12px;
+    --radius-full: 999px;
+}
