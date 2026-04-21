@@ -116,3 +116,5 @@ const renderCard = (card, node) => {
 const CARDS_CONTAINER = document.getElementById('cards-container')
 
 renderCard(mockCard, CARDS_CONTAINER)
+
+import { cards } from './data/cards.js'
