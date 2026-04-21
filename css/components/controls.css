@@ -22,8 +22,8 @@
     padding: var(--space-8) var(--space-12);
     background-color: #ffffff;
     color: var(--color-text);
-    font-size: var(--font-size-md);
-    font-weight: 600;
+    font-size: var(--font-size-lg);
+    font-weight: 500;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(26, 29, 46, 0.06);
     transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
