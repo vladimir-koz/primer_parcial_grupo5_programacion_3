@@ -1,5 +1,5 @@
 .layout-flex {
-    padding: var(--space-12);
+    padding: var(--layout-flex-padding);
 }
 
 .layout-flex__cards {
@@ -7,28 +7,19 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: var(--space-16);
+    gap: var(--layout-flex-gap);
 }
 
 .layout-flex__cards .card {
-    flex: 0 0 320px;
-    max-width: 320px;
+    flex: 0 0 var(--layout-flex-card-width);
+    max-width: var(--layout-flex-card-width);
+    flex-direction: column;
 }
 
-@media (max-width: 960px) {
-    .layout-flex__cards .card {
-        flex-basis: calc(50% - var(--space-16));
-        max-width: none;
+/*oculto los botones ya que en mobile dejamos un solo layout en columna*/
+@media (max-width: 720px) {
+    .controls__button:nth-child(1),
+    .controls__button:nth-child(2) {
+        display: none;
     }
 }
-
-@media (max-width: 640px) {
-    .layout-flex {
-        padding: var(--space-8);
-    }
-
-    .layout-flex__cards .card {
-        flex-basis: 100%;
-    }
-}
-
