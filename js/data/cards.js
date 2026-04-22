@@ -2,12 +2,25 @@ export const cards = [
     {
         id: '1',
         img: {
-            url: './assests/images/gatito-arte-cyberpunk.webp',
-            alt: 'Cyberpunk art'
+            url: './assests/images/gatita-arte-cartoon.webp',
+            alt: 'Cartoon art'
         },
-        title: 'Cyberpunk',
-        desc:'Inspirado en el mitico juego cyberpunk',
+        title: 'Cartoon cat',
+        desc:'Inspirado en los dibujitos de televisión',
         creationDate: '20-12-2025',
         likes: 12
-    }
+    },
+    {
+        id: '2',
+        img: {
+            url: './assets/images/gatito-arte-clasico.png',
+            alt:'Gato clasico'
+        },
+        title: 'Gato clasico',
+        desc:'Gato estilo clasico',
+        creationDate :'20-12-2025',
+        likes: 12
+    },
+
+
 ]
