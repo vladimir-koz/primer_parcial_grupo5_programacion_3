@@ -1,4 +1,4 @@
-
+import { cards } from './data/cards.js'
 /**
  * @typedef {Object} CardImage
  * @property {string} url - URL de la imagen
@@ -22,46 +22,6 @@ const mockCards = [
         creationDate: '2026-04-15',
         likes: 12
     },
-    {
-        id: '2',
-        img: { url: './assets/images/gatito-arte-realista.png', alt: 'Realistic art' },
-        title: 'Realista',
-        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        creationDate: '2026-04-16',
-        likes: 28
-    },
-    {
-        id: '3',
-        img: { url: './assets/images/gattit-arte-pixelart.webp', alt: 'Pixel art' },
-        title: 'Pixel Art',
-        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        creationDate: '2026-04-17',
-        likes: 7
-    },
-    {
-        id: '4',
-        img: { url: './assets/images/gatito-arte-minimalista.png', alt: 'Minimalist art' },
-        title: 'Minimalista',
-        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        creationDate: '2026-04-18',
-        likes: 7
-    },
-    {
-        id: '5',
-        img: { url: './assets/images/gatita-arte-cartoon.webp', alt: 'Cartoon art' },
-        title: 'Cartoon',
-        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        creationDate: '2026-04-19',
-        likes: 7
-    },
-    {
-        id: '6',
-        img: { url: './assets/images/gatito-arte-retro.png', alt: 'Retro art' },
-        title: 'Retro',
-        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        creationDate: '2026-04-20',
-        likes: 7
-    }
 ];
 
 
@@ -166,7 +126,7 @@ function orderedCards () {
 
     let order = document.getElementById("order").value == "ASC" ? 1 : -1
     let orderBy = document.getElementById("orderBy").value
-    return mockCards.sort((a, b) => {
+    return cards.sort((a, b) => {
         if (a[orderBy] > b[orderBy]) {
                 return 1 * order;
             }
@@ -189,3 +149,11 @@ document.getElementById("button_grilla").addEventListener("click", () => {
 document.getElementById("button_feed").addEventListener("click", () => {
     document.getElementById("cards-container").className = "layout-feed__cards"
 })
+
+const renderContent = (cards, node) => {
+    node.innerHTML= ''
+
+    cards.forEach ((card) => {
+        renderCard(card,node)
+    })
+}
