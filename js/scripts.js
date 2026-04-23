@@ -13,14 +13,56 @@
  */
 
 /** @type {Card} */
-const mockCard = {
-    id: '1',
-    img: { url: './assets/images/gatito-arte-cyberpunk.webp', alt: 'Realistic art' },
-    title: 'Cyberpunk',
-    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    creationDate: '2026-04-19',
-    likes: 28
-}
+const mockCards = [
+    {
+        id: '1',
+        img: { url: './assets/images/gatito-arte-cyberpunk.webp', alt: 'Cyberpunk art' },
+        title: 'Cyberpunk',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        creationDate: '2026-04-15',
+        likes: 12
+    },
+    {
+        id: '2',
+        img: { url: './assets/images/gatito-arte-realista.png', alt: 'Realistic art' },
+        title: 'Realista',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        creationDate: '2026-04-16',
+        likes: 28
+    },
+    {
+        id: '3',
+        img: { url: './assets/images/gattit-arte-pixelart.webp', alt: 'Pixel art' },
+        title: 'Pixel Art',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        creationDate: '2026-04-17',
+        likes: 7
+    },
+    {
+        id: '4',
+        img: { url: './assets/images/gatito-arte-minimalista.png', alt: 'Minimalist art' },
+        title: 'Minimalista',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        creationDate: '2026-04-18',
+        likes: 7
+    },
+    {
+        id: '5',
+        img: { url: './assets/images/gatita-arte-cartoon.webp', alt: 'Cartoon art' },
+        title: 'Cartoon',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        creationDate: '2026-04-19',
+        likes: 7
+    },
+    {
+        id: '6',
+        img: { url: './assets/images/gatito-arte-retro.png', alt: 'Retro art' },
+        title: 'Retro',
+        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        creationDate: '2026-04-20',
+        likes: 7
+    }
+];
 
 
 /**
@@ -61,58 +103,81 @@ const createNode = (tag, attributes = {}) => {
  * Nodo HTML donde renderizar la tarjeta creada.
  * @returns {void} 
  */
-const renderCard = (card, node) => {
-    const { id, img, title, desc, creationDate, likes } = card
-    const article = createNode('article', {
-        id, class: 'card'
+const renderCards = () => {
+
+    const node = document.getElementById('cards-container')
+    node.innerHTML = ""
+    let cards = orderedCards() 
+
+    cards.forEach(card => {
+        const { id, img, title, desc, creationDate, likes } = card
+        const article = createNode('article', {
+            id, class: 'card'
+        })
+
+        const imgWrapper = createNode('div', { class: 'card__media' })
+        const imgElement = createNode('img', { class: 'card__image', src: img.url, alt: img.alt })
+        imgWrapper.append(imgElement)
+
+
+        const contentWrapper = createNode('div', { class: 'card__content' })
+        const cardTitle = createNode('h2', {
+            class: 'card__title',
+            innerText: title
+        })
+        const cardDesc = createNode('p', {
+            class: 'card__description',
+            innerText: desc
+        })
+        const cardDate = createNode('time', {
+            class: 'card__date',
+            dateTime: creationDate,
+            innerText: new Date(creationDate).toLocaleDateString()
+        })
+
+        const actionsWrapper = createNode('div', { class: 'card__actions' })
+        const likesButton = createNode('button', {
+            class: 'card__like-button',
+            type: 'button',
+            'aria-label': 'Dar me gusta',
+            innerText: '🤍'
+        })
+        const likesCounter = createNode('span', {
+            class: 'card__likes-count',
+            innerText: likes
+        })
+
+        const handleClick = () => {
+            card.likes++
+            likesCounter.innerText = card.likes
+        }
+
+        likesButton.addEventListener('click', handleClick)
+
+        actionsWrapper.append(likesButton, likesCounter)
+        contentWrapper.append(cardTitle, cardDesc, cardDate, actionsWrapper)
+        article.append(imgWrapper, contentWrapper)
+
+        node.appendChild(article)
     })
-
-    const imgWrapper = createNode('div', { class: 'card__media' })
-    const imgElement = createNode('img', { class: 'card__image', src: img.url, alt: img.alt })
-    imgWrapper.append(imgElement)
-
-
-    const contentWrapper = createNode('div', { class: 'card__content' })
-    const cardTitle = createNode('h2', {
-        class: 'card__title',
-        innerText: title
-    })
-    const cardDesc = createNode('p', {
-        class: 'card__description',
-        innerText: desc
-    })
-    const cardDate = createNode('time', {
-        class: 'card__date',
-        dateTime: creationDate,
-        innerText: new Date(creationDate).toLocaleDateString()
-    })
-
-    const actionsWrapper = createNode('div', { class: 'card__actions' })
-    const likesButton = createNode('button', {
-        class: 'card__like-button',
-        type: 'button',
-        'aria-label': 'Dar me gusta',
-        innerText: '🤍'
-    })
-    const likesCounter = createNode('span', {
-        class: 'card__likes-count',
-        innerText: likes
-    })
-
-    const handleClick = () => {
-        card.likes++
-        likesCounter.innerText = card.likes
-    }
-
-    likesButton.addEventListener('click', handleClick)
-
-    actionsWrapper.append(likesButton, likesCounter)
-    contentWrapper.append(cardTitle, cardDesc, cardDate, actionsWrapper)
-    article.append(imgWrapper, contentWrapper)
-
-    node.appendChild(article)
 }
 
-const CARDS_CONTAINER = document.getElementById('cards-container')
+function orderedCards () {
 
-renderCard(mockCard, CARDS_CONTAINER)
+    let order = document.getElementById("order").value == "ASC" ? 1 : 0
+    let orderBy = document.getElementById("orderBy").value
+    return mockCards.sort((a, b) => {
+        if (a[orderBy] > b[orderBy]) {
+                return 1 * order;
+            }
+            if (a[orderBy] < b[orderBy]) {
+                return -1 * order;
+            }
+            return 0;
+        });
+}
+        
+renderCards()
+
+document.getElementById("order").addEventListener("change", renderCards)
+document.getElementById("orderBy").addEventListener("change", renderCards)
