@@ -164,7 +164,7 @@ const renderCards = () => {
 
 function orderedCards () {
 
-    let order = document.getElementById("order").value == "ASC" ? 1 : 0
+    let order = document.getElementById("order").value == "ASC" ? 1 : -1
     let orderBy = document.getElementById("orderBy").value
     return mockCards.sort((a, b) => {
         if (a[orderBy] > b[orderBy]) {
