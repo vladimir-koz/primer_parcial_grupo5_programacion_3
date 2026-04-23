@@ -181,3 +181,11 @@ renderCards()
 
 document.getElementById("order").addEventListener("change", renderCards)
 document.getElementById("orderBy").addEventListener("change", renderCards)
+
+document.getElementById("button_grilla").addEventListener("click", () => {
+    document.getElementById("cards-container").className = "layout-flex__cards"
+})
+
+document.getElementById("button_feed").addEventListener("click", () => {
+    document.getElementById("cards-container").className = "layout-feed__cards"
+})

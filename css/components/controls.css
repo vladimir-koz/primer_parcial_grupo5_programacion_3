@@ -23,7 +23,7 @@
     background-color: #ffffff;
     color: var(--color-text);
     font-size: var(--font-size-md);
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(26, 29, 46, 0.06);
     transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
@@ -48,12 +48,12 @@
 }
 
 @media (max-width: 640px) {
-    .controls {
-        width: 100%;
-        margin-bottom: var(--space-24);
+    .controls{
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .controls__button{
+        font-size: var(--font-size-md);
     }
 
-    .controls__button {
-        width: 100%;
-    }
 }
