@@ -1,10 +1,9 @@
 .layout-feed__cards {
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: var(--layout-feed-gap);
-    padding: var(--layout-feed-padding);
     max-width: var(--layout-feed-max-width);
 }
 
@@ -16,7 +15,6 @@
 .layout-feed__cards .card__media {
     flex: 0 0 var(--layout-feed-media-width);
     height: var(--layout-feed-media-height);
-
 }
 
 .layout-feed__cards .card__content {
@@ -25,18 +23,14 @@
     align-items: center;
     max-width: var(--layout-feed-content-max-width);
     gap: var(--layout-feed-content-gap);
-
 }
-.layout-feed__cards .card__title{
+
+.layout-feed__cards .card__title {
     align-self: flex-start;
 }
 
 
 @media (max-width: 640px) {
-    .layout-feed {
-        padding: var(--space-8);
-    }
-
     .layout-feed__cards .card {
         flex-basis: 100%;
     }
