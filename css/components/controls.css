@@ -50,6 +50,22 @@
     transform: translateY(0);
 }
 
+.controls__select{
+    border: 1px solid rgba(26, 29, 46, 0.14);
+    border-radius: var(--radius-8);
+    padding: var(--space-8) var(--space-12);
+    background-color: #ffffff;
+    color: var(--color-text);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 160ms ease,box-shadow 160ms ease;
+}
+.controls__select:hover{
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-accent);
+}
+
 @media (max-width: 640px) {
     .controls{
         flex-direction: row;
