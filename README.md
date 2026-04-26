@@ -55,8 +55,6 @@ La lógica de la aplicación está centralizada en scripts.js y sigue un enfoque
 export const cards = [ ... ]
 ```
 
-// js/data/cards.js
-export const cards = [ ... ]
 Es un array de objetos Card
 Cada tarjeta contiene:
 id
