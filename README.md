@@ -166,7 +166,8 @@ UI actualizada
 ## Decisiones técnicas
 
 **Render dinámico completo**
--Se reconstruye el DOM en cada cambio - Simple y predecible para este tamaño de app
+- Se reconstruye el DOM en cada cambio 
+- Simple y predecible para este tamaño de app
 
 **Separación de responsabilidades**
 - Datos → cards.js
