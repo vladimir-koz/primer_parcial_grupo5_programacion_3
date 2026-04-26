@@ -1,5 +1,12 @@
 @import url("./variables.css");
 @import url("./general.css");
 @import url("./components/controls.css");
+<<<<<<< HEAD
 @import url("./components/card-flex.css");
 @import url("./components/layout-flex.css");
+=======
+@import url("./components/card.css");
+@import url("./components/layout.css");
+@import url("./components/layout-flex.css");
+@import url("./components/layout-feed.css");
+>>>>>>> deabe83bda313093738c36fdef555b98ab719cd8

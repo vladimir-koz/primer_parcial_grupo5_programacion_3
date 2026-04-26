@@ -1,12 +1,16 @@
+<<<<<<< HEAD
 .layout-flex {
     padding: var(--space-12);
 }
 
+=======
+>>>>>>> deabe83bda313093738c36fdef555b98ab719cd8
 .layout-flex__cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
+<<<<<<< HEAD
     gap: var(--space-16);
 }
 
@@ -30,5 +34,14 @@
     .layout-flex__cards .card {
         flex-basis: 100%;
     }
+=======
+    gap: var(--layout-flex-gap);
+}
+
+.layout-flex__cards .card {
+    flex: 0 0 var(--layout-flex-card-width);
+    max-width: var(--layout-flex-card-width);
+    flex-direction: column;
+>>>>>>> deabe83bda313093738c36fdef555b98ab719cd8
 }
 
