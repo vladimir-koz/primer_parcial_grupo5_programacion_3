@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria de tarjetas</title>
-    <meta
-        name="description"
-        content="Galería de tarjetas con cambio de layout, ordenamiento por cantidad de likes y fecha de publicación."
-    >
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="/assets/favicon/icon.png">
-
-    <script defer src="js/scripts.js"></script>
-=======
     <title>Galeria de tarjetas</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,127 +11,10 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="/assets/favicon/icon.png">
     <script type="module" defer src="js/scripts.js"></script>
->>>>>>> deabe83bda313093738c36fdef555b98ab719cd8
 </head>
 <body>
     <main>
         <section class="controls">
-<<<<<<< HEAD
-            <button class="controls__button" type="button"><img src="/assets/images/grilla.png" alt="layout flex en grilla"></button>
-            <button class="controls__button" type="button"><img src="/assets/images/feed.png" alt="Layout Feed"></button>
-            <button class="controls__button" type="button">Ordenar por likes</button>
-            <button class="controls__button" type="button">Ordenar por Fecha</button>
-        </section>
-
-        <section class="layout-flex">
-            <div id="cards-container" class="layout-flex__cards">
-                <article class="card">
-                    <div class="card__media">
-                        <img class="card__image" src="./assets/images/gatito-arte-cyberpunk.webp" alt="Cyberpunk art" />
-                    </div>
-
-                    <div class="card__content">
-                        <h2 class="card__title">Cyberpunk</h2>
-                        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <time class="card__date" datetime="2026-04-19">
-                            19/04/2026
-                        </time>
-                        <div class="card__actions">
-                            <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
-                            <span class="card__likes-count">12</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__media">
-                        <img class="card__image" src="./assets/images/gatito-arte-realista.png" alt="Realistic art" />
-                    </div>
-
-                    <div class="card__content">
-                        <h2 class="card__title">Realista</h2>
-                        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <time class="card__date" datetime="2026-04-19">
-                            19/04/2026
-                        </time>
-                        <div class="card__actions">
-                            <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
-                            <span class="card__likes-count">28</span>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__media">
-                        <img class="card__image" src="./assets/images/gattit-arte-pixelart.webp" alt="Pixel art" />
-                    </div>
-
-                    <div class="card__content">
-                        <h2 class="card__title">Pixel Art</h2>
-                        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <time class="card__date" datetime="2026-04-19">
-                            19/04/2026
-                        </time>
-                        <div class="card__actions">
-                            <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
-                            <span class="card__likes-count">7</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="card">
-                    <div class="card__media">
-                        <img class="card__image" src="./assets/images/gatito-arte-minimalista.png" alt="Minimalist art" />
-                    </div>
-
-                    <div class="card__content">
-                        <h2 class="card__title">Minimalista</h2>
-                        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <time class="card__date" datetime="2026-04-19">
-                            19/04/2026
-                        </time>
-                        <div class="card__actions">
-                            <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
-                            <span class="card__likes-count">7</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="card">
-                    <div class="card__media">
-                        <img class="card__image" src="./assets/images/gatita-arte-cartoon.webp" alt="Cartoon art" />
-                    </div>
-
-                    <div class="card__content">
-                        <h2 class="card__title">Cartoon</h2>
-                        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <time class="card__date" datetime="2026-04-19">
-                            19/04/2026
-                        </time>
-                        <div class="card__actions">
-                            <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
-                            <span class="card__likes-count">7</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="card">
-                <div class="card__media">
-                    <img class="card__image" src="./assets/images/gatito-arte-retro.png" alt="Retro art" />
-                </div>
-
-                <div class="card__content">
-                    <h2 class="card__title">Retro</h2>
-                    <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <time class="card__date" datetime="2026-04-19">
-                            19/04/2026
-                        </time>
-                    <div class="card__actions">
-                        <button class="card__like-button" type="button" aria-label="Dar me gusta">🤍</button>
-                        <span class="card__likes-count">7</span>
-                    </div>
-                </div>
-                </article>
-            </div>
-        </section>
-=======
             <button class="controls__button" type="button" id="button_grilla"><img src="./assets/images/grilla.png" alt="layout flex en grilla"></button>
             <button class="controls__button" type="button" id="button_feed"><img src="./assets/images/feed.png" alt="Layout Feed"></button>
 
@@ -163,7 +33,6 @@
             <div id="cards-container" class="layout-feed__cards">
             </div>
         </section> 
->>>>>>> deabe83bda313093738c36fdef555b98ab719cd8
     </main>
 
 </body>

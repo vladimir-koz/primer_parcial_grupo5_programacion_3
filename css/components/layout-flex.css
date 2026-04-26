@@ -1,40 +1,8 @@
-<<<<<<< HEAD
-.layout-flex {
-    padding: var(--space-12);
-}
-
-=======
->>>>>>> deabe83bda313093738c36fdef555b98ab719cd8
 .layout-flex__cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-<<<<<<< HEAD
-    gap: var(--space-16);
-}
-
-.layout-flex__cards .card {
-    flex: 0 0 320px;
-    max-width: 320px;
-}
-
-@media (max-width: 960px) {
-    .layout-flex__cards .card {
-        flex-basis: calc(50% - var(--space-16));
-        max-width: none;
-    }
-}
-
-@media (max-width: 640px) {
-    .layout-flex {
-        padding: var(--space-8);
-    }
-
-    .layout-flex__cards .card {
-        flex-basis: 100%;
-    }
-=======
     gap: var(--layout-flex-gap);
 }
 
@@ -42,6 +10,5 @@
     flex: 0 0 var(--layout-flex-card-width);
     max-width: var(--layout-flex-card-width);
     flex-direction: column;
->>>>>>> deabe83bda313093738c36fdef555b98ab719cd8
 }
 

@@ -7,9 +7,6 @@
     --color-border: #e5e7eb;
     --shadow-accent: 0 8px 20px rgba(255, 107, 107, 0.28);
 
-<<<<<<< HEAD
-    --font-base: "Helvetica Neue", Arial, sans-serif;
-=======
     /* tipografía general */
     --font-base: "Bebas Neue", sans-serif;
     --font-base-size: 16px;
@@ -18,7 +15,6 @@
 
     --font-size-md: 16px;
     --font-size-lg: 20px;
->>>>>>> deabe83bda313093738c36fdef555b98ab719cd8
 
     --space-8: 8px;
     --space-12: 12px;
@@ -27,14 +23,6 @@
     --space-40: 40px;
     --space-48: 48px;
 
-<<<<<<< HEAD
-    --font-size-md: 14px;
-    --font-size-lg: 16px;
-
-    --radius-8: 8px;
-    --radius-12: 12px;
-    --radius-full: 999px;
-=======
     --radius-8: 8px;
     --radius-12: 12px;
     --radius-full: 999px;
@@ -65,5 +53,4 @@
     --layout-feed-media-height: 560px;
     --layout-feed-content-max-width: 300px;
     --layout-feed-content-gap: var(--space-48);
->>>>>>> deabe83bda313093738c36fdef555b98ab719cd8
 }
