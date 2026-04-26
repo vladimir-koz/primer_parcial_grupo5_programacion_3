@@ -4,31 +4,22 @@ Proyecto de galería interactiva con tarjetas con likes, ordenamiento y dos layo
 
 ## Qué está hecho
 
-**Estructura base (HTML + CSS)**
+**Estructura base (HTML + CSS) + Javascript**
+
 - Maquetado responsivo con Flexbox.
 - Tarjetas con imagen, titulo, descripción y botón de like
 - CSS modular (variables, componentes separados) + sistema de 4px para spacing
 - Dos layouts: grilla (Flex) y feed (por hacer)
 - Botones de control: cambiar layout, ordenar por likes, ordenar por fecha
-
-**Lo que viene (JavaScript)**
-- Renderizar tarjetas desde JSON (sin tocar HTML)
+- Render de tarjetas desde fuente de datos en JS/JSON (sin tocar HTML)
 - Contador de likes con click, persistencia temporal
 - Ordenamiento dinámico
-- Cambiar entre layouts sin recargar
-- Tenemos que poner todas las funciones que tendriamos en el js.
+- Cambio entre layouts sin recargar
 
-## Cómo va a funcionar
+## Cómo funciona
 
-En vez de hardcodear el HTML con cada tarjeta, tenemos un JSON con los datos y una función que genera el HTML.
-Si necesitan cambiar contenido o agregar tarjetas, es só editar JSON y el renderizador.
-
-```js
-// Aca pondriamos la estructura básica
-
-```
-
-Ambos layouts (grilla y feed) van a usar el mismo renderizador. La diferencia va a ser el contenedor afuera y el CSS que lo acompaña. Así cualquier cambio en los datos se refleja automático en los dos.
+En vez de hardcodear el HTML con cada tarjeta, usamos una fuente de datos en JavaScript (cards.js) y un renderizador que construye dinámicamente el DOM.
+Si se quiere cambiar contenido o agregar tarjetas, solo se modifica el archivo de datos y el render se actualiza automáticamente.
 
 ## Estructura del proyecto
 
@@ -40,22 +31,159 @@ Ambos layouts (grilla y feed) van a usar el mismo renderizador. La diferencia va
 │   ├── general.css     (resets, estilos globales)
 │   └── components/
 │       ├── controls.css      (botones de control)
-│       ├── card-flex.css     (estilos de tarjeta)
+│       ├── card.css     (estilos de tarjeta)
+│       ├── layout.css     (layout global)
+│       ├── layout-feed.css     (contenedor feed)
 │       └── layout-flex.css   (contenedor grilla)
 ├── js/
-│   └── scripts.js      
+│   ├── data/
+│   │   ├── cards.js     (cards data source)
+│   └── scripts.js      (main script)
 └── assets/
     ├── favicon/
     └── images/
 ```
 
-## Cosas importantes
+## Estructura JS
 
+La lógica de la aplicación está centralizada en scripts.js y sigue un enfoque de render basado en datos + funciones puras auxiliares.
+
+**1.Fuente de datos**
+
+```js
+// js/data/cards.js
+export const cards = [ ... ]
+```
+
+// js/data/cards.js
+export const cards = [ ... ]
+Es un array de objetos Card
+Cada tarjeta contiene:
+id
+img (url + alt)
+title
+desc
+creationDate
+likes
+
+Este archivo actúa como fuente de verdad inicial
+
+Ambos layouts (grilla y feed) van a usar el mismo renderizador. La diferencia va a ser el contenedor afuera y el CSS que lo acompaña. Así cualquier cambio en los datos se refleja automático en los dos.
+
+**2. Creación de nodos**
+
+```js
+const createNode = (tag, attributes = {}) => { ... }
+```
+
+Función genérica para crear elementos del DOM:
+
+Recibe:
+tag: nombre del elemento (div, img, etc.)
+attributes: propiedades y atributos
+Retorna:
+Un HTMLElement tipado correctamente
+
+Permite evitar document.createElement repetitivo
+Soporta props del DOM (innerText, value, etc.) y atributos HTML (aria-_, data-_, etc.)
+
+**3. Factory de tarjetas**
+
+```js
+const createCard = (card) => { ... }
+```
+
+Construye el HTML de una tarjeta (article)
+Agregar estructura interna:
+
+- imagen
+- contenido
+- acciones (likes)
+- Manejar interacción (click en botón de like)
+- Cada tarjeta es independiente encapsula su propio comportamiento
+
+**4. Ordenamiento dinámico**
+
+```js
+const orderCards = (cards) => { ... }
+```
+
+- No muta el array original (slice())
+- Ordena según criterio (likes o creationDate) y dirección (ASC / DESC)
+
+**5. Renderizado**
+
+```js
+const renderCards = () => { ... }
+```
+
+Responsable de:
+
+- Limpiar el contenedor
+- Obtener tarjetas ordenadas
+- Generar cada tarjeta con createCard
+- Insertarlas en el DOM
+
+Es el punto central de actualización de UI. Permite cambiar el orden sin afectar la fuente de datos
+
+**6. Eventos de UI**
+
+```js
+ORDER_BTN.addEventListener(...)
+ORDER_BY_BTN.addEventListener(...)
+GRID_LAYOUT_BTN.addEventListener(...)
+FEED_LAYOUT_BTN.addEventListener(...)
+```
+
+Permiten:
+
+- Cambiar orden (asc/desc)
+- Cambiar criterio (likes/fecha)
+- Alternar layouts (grilla / feed)
+
+Todos los cambios terminan llamando a renderCards()
+
+**7. Inicialización**
+
+```js
+renderCards();
+```
+
+## Flujo general
+
+```
+Render inicial al cargar la página
+
+Usuario interactúa (click / change)
+        ↓
+Se actualiza estado (likes / orden / layout)
+        ↓
+renderCards()
+        ↓
+Se reconstruye el DOM
+        ↓
+UI actualizada
+```
+
+## Decisiones técnicas
+
+**Render dinámico completo**
+-Se reconstruye el DOM en cada cambio - Simple y predecible para este tamaño de app
+
+**Separación de responsabilidades**
+- Datos → cards.js
+- Lógica → scripts.js
+- Estilos → CSS modular
+
+**Uso de JSDoc**
+- Tipado sin necesidad de TypeScript
+- Mejora autocompletado y mantenibilidad
+
+### Criterios CSS
 - **Clases CSS**: BEM (`.card__title`, `.card__actions`, etc.)
 - **Espacios**: 4px base (8, 12, 16, 24, 40, 48px)
 - **Variables**: Todo en `variables.css` (colores, sombras, espacios)
 
----
 
 ## Integrantes
 
@@ -64,3 +192,11 @@ Ambos layouts (grilla y feed) van a usar el mismo renderizador. La diferencia va
 - Laureano Kronemberger
 - Santino Aloisio
 - Francisco Jaszczuk
+
+### Acciones
+**Conrado Lanusse**
+- Cree las funciones base de creacion de nodos, tarjetas y render.
+- Agregué documentación y tipados con JSDoc
+- Hice limpieza y refactorización final de scripts.js (orden, referencias, funciones, docs)
+- Eliminé archivos y variables en desuso
+- Agregué documentación del proyecto a README.md
