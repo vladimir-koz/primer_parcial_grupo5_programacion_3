@@ -33,6 +33,7 @@
 }
 
 
+.btn_active,
 .controls__button:hover {
     
     border-color: rgba(255, 107, 107, 0.55);
