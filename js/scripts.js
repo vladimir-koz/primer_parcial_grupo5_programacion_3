@@ -1,29 +1,10 @@
-import { cards } from './data/cards.js'
-/**
- * @typedef {Object} CardImage
- * @property {string} url - URL de la imagen
- * @property {string} alt - Texto alternativo (accesibilidad)
- * @typedef {Object} Card
- * @property {string} id
- * @property {CardImage} img - Información de la imagen
- * @property {string} title
- * @property {string} desc
- * @property {string} creationDate - Fecha en formato ISO (YYYY-MM-DD)
- * @property {number} likes
- */
+import { cards as CARDS } from './data/cards.js'
 
-/** @type {Card} */
-const mockCards = [
-    {
-        id: '1',
-        img: { url: './assets/images/gatito-arte-cyberpunk.webp', alt: 'Cyberpunk art' },
-        title: 'Cyberpunk',
-        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        creationDate: '2026-04-15',
-        likes: 12
-    },
-];
-
+const CARDS_CONTAINER = document.getElementById("cards-container")
+const GRID_LAYOUT_BTN = document.getElementById("button_grilla")
+const FEED_LAYOUT_BTN = document.getElementById("button_feed")
+const ORDER_BY_BTN = document.getElementById("orderBy")
+const ORDER_BTN = document.getElementById("order")
 
 /**
  * Crea un elemento del DOM a partir de un tag y atributos.
@@ -31,7 +12,7 @@ const mockCards = [
  * @param {T} tag - Nombre del tag HTML (ej: 'div', 'img', 'button')
  * @param {Partial<HTMLElementTagNameMap[T]> & Record<string, any>} [attributes={}]
  * Objeto de configuración del elemento:
- * - Propiedades del DOM: innerText, textContent, value, checked, etc.
+ * - Propiedades del DOM: innerText, className, textContent, value, checked, etc.
  * - Atributos HTML: aria-*, data-*, id, class, etc.
  * @returns {HTMLElementTagNameMap[T]} Elemento HTML creado
  * @example
@@ -59,101 +40,102 @@ const createNode = (tag, attributes = {}) => {
  * @param {Card} card
  * Objeto tipo tarjeta:
  * - { id, img, title, desc, creationDate, likes }
- * @param {HTMLElement} node
- * Nodo HTML donde renderizar la tarjeta creada.
- * @returns {void} 
+ * @returns {HTMLArticleElement}
  */
-const renderCards = () => {
-
-    const node = document.getElementById('cards-container')
-    node.innerHTML = ""
-    let cards = orderedCards() 
-
-    cards.forEach(card => {
-        const { id, img, title, desc, creationDate, likes } = card
-        const article = createNode('article', {
-            id, class: 'card'
-        })
-
-        const imgWrapper = createNode('div', { class: 'card__media' })
-        const imgElement = createNode('img', { class: 'card__image', src: img.url, alt: img.alt })
-        imgWrapper.append(imgElement)
-
-
-        const contentWrapper = createNode('div', { class: 'card__content' })
-        const cardTitle = createNode('h2', {
-            class: 'card__title',
-            innerText: title
-        })
-        const cardDesc = createNode('p', {
-            class: 'card__description',
-            innerText: desc
-        })
-        const cardDate = createNode('time', {
-            class: 'card__date',
-            dateTime: creationDate,
-            innerText: new Date(creationDate).toLocaleDateString()
-        })
-
-        const actionsWrapper = createNode('div', { class: 'card__actions' })
-        const likesButton = createNode('button', {
-            class: 'card__like-button',
-            type: 'button',
-            'aria-label': 'Dar me gusta',
-            innerText: '🤍'
-        })
-        const likesCounter = createNode('span', {
-            class: 'card__likes-count',
-            innerText: likes
-        })
-
-        const handleClick = () => {
-            card.likes++
-            likesCounter.innerText = card.likes
-        }
-
-        likesButton.addEventListener('click', handleClick)
-
-        actionsWrapper.append(likesButton, likesCounter)
-        contentWrapper.append(cardTitle, cardDesc, cardDate, actionsWrapper)
-        article.append(imgWrapper, contentWrapper)
-
-        node.appendChild(article)
+const createCard = (card) => {
+    const { id, img, title, desc, creationDate, likes } = card
+    const article = createNode('article', {
+        id, className: 'card'
     })
+
+    const imgWrapper = createNode('div', { className: 'card__media' })
+    const imgElement = createNode('img', { className: 'card__image', src: img.url, alt: img.alt })
+    imgWrapper.append(imgElement)
+
+
+    const contentWrapper = createNode('div', { className: 'card__content' })
+    const cardTitle = createNode('h2', {
+        className: 'card__title',
+        innerText: title
+    })
+    const cardDesc = createNode('p', {
+        className: 'card__description',
+        innerText: desc
+    })
+    const cardDate = createNode('time', {
+        className: 'card__date',
+        dateTime: creationDate,
+        innerText: new Date(creationDate).toLocaleDateString()
+    })
+
+    const actionsWrapper = createNode('div', { className: 'card__actions' })
+    const likesButton = createNode('button', {
+        className: 'card__like-button',
+        type: 'button',
+        'aria-label': 'Dar me gusta',
+        innerText: '🤍'
+    })
+    const likesCounter = createNode('span', {
+        className: 'card__likes-count',
+        innerText: String(likes)
+    })
+
+    const handleClick = () => {
+        card.likes++
+        likesCounter.innerText = String(card.likes)
+    }
+
+    likesButton.addEventListener('click', handleClick)
+
+    actionsWrapper.append(likesButton, likesCounter)
+    contentWrapper.append(cardTitle, cardDesc, cardDate, actionsWrapper)
+    article.append(imgWrapper, contentWrapper)
+
+    return article
 }
 
-function orderedCards () {
-
-    let order = document.getElementById("order").value == "ASC" ? 1 : -1
-    let orderBy = document.getElementById("orderBy").value
-    return cards.sort((a, b) => {
+/**
+ * @param {Card[]} cards
+ * @returns {Card[]}
+ */
+const orderCards = (cards) => {
+    const order = ORDER_BTN.value == "ASC" ? 1 : -1
+    const orderBy = ORDER_BY_BTN.value
+    return cards.slice().sort((a, b) => {
         if (a[orderBy] > b[orderBy]) {
-                return 1 * order;
-            }
-            if (a[orderBy] < b[orderBy]) {
-                return -1 * order;
-            }
-            return 0;
-        });
+            return order;
+        }
+        if (a[orderBy] < b[orderBy]) {
+            return -order;
+        }
+        return 0;
+    });
 }
-        
-renderCards()
 
-document.getElementById("order").addEventListener("change", renderCards)
-document.getElementById("orderBy").addEventListener("change", renderCards)
-
-document.getElementById("button_grilla").addEventListener("click", () => {
-    document.getElementById("cards-container").className = "layout-flex__cards"
-})
-
-document.getElementById("button_feed").addEventListener("click", () => {
-    document.getElementById("cards-container").className = "layout-feed__cards"
-})
-
-const renderContent = (cards, node) => {
-    node.innerHTML= ''
-
-    cards.forEach ((card) => {
-        renderCard(card,node)
+const renderCards = () => {
+    CARDS_CONTAINER.innerHTML = ''
+    const cardsToRender = orderCards(CARDS)
+    cardsToRender.forEach(card => {
+        CARDS_CONTAINER.append(createCard(card))
     })
 }
+
+ORDER_BTN.addEventListener("change", renderCards)
+ORDER_BY_BTN.addEventListener("change", renderCards)
+
+GRID_LAYOUT_BTN.addEventListener("click", () => {
+    GRID_LAYOUT_BTN.classList.add('btn_active')
+    FEED_LAYOUT_BTN.classList.remove('btn_active')
+    CARDS_CONTAINER.className = "layout-flex__cards"
+    renderCards()
+})
+
+FEED_LAYOUT_BTN.addEventListener("click", () => {
+    GRID_LAYOUT_BTN.classList.remove('btn_active')
+    FEED_LAYOUT_BTN.classList.add('btn_active')
+    CARDS_CONTAINER.className = "layout-feed__cards"
+    renderCards()
+})
+
+// init
+renderCards()

@@ -1,3 +1,17 @@
+/**
+ * @typedef {Object} CardImage
+ * @property {string} url - URL de la imagen
+ * @property {string} alt - Texto alternativo (accesibilidad)
+ * @typedef {Object} Card
+ * @property {string} id
+ * @property {CardImage} img - Información de la imagen
+ * @property {string} title
+ * @property {string} desc
+ * @property {string} creationDate - Fecha en formato ISO (YYYY-MM-DD)
+ * @property {number} likes
+ */
+
+/** @type {Card[]} */
 export const cards = [
     {
         id: '1',
