@@ -2,5 +2,6 @@
 @import url("./general.css");
 @import url("./components/controls.css");
 @import url("./components/card.css");
+@import url("./components/layout.css");
 @import url("./components/layout-flex.css");
 @import url("./components/layout-feed.css");

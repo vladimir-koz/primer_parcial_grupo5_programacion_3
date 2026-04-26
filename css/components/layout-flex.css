@@ -1,7 +1,3 @@
-.layout-flex {
-    padding: var(--layout-flex-padding);
-}
-
 .layout-flex__cards {
     display: flex;
     flex-wrap: wrap;
@@ -16,10 +12,3 @@
     flex-direction: column;
 }
 
-/*oculto los botones ya que en mobile dejamos un solo layout en columna*/
-@media (max-width: 720px) {
-    .controls__button:nth-child(1),
-    .controls__button:nth-child(2) {
-        display: none;
-    }
-}

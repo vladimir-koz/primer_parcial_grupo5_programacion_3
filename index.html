@@ -10,30 +10,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="/assets/favicon/icon.png">
-    <script defer src="js/scripts.js"></script>
+    <script type="module" defer src="js/scripts.js"></script>
 </head>
 <body>
     <main>
         <section class="controls">
-            <button class="controls__button" type="button" id="button_grilla"><img src="/assets/images/grilla.png" alt="layout flex en grilla"></button>
-            <button class="controls__button" type="button" id="button_feed"><img src="/assets/images/feed.png" alt="Layout Feed"></button>
+            <button class="controls__button" type="button" id="button_grilla"><img src="./assets/images/grilla.png" alt="layout flex en grilla"></button>
+            <button class="controls__button btn_active" type="button" id="button_feed"><img src="./assets/images/feed.png" alt="Layout Feed"></button>
 
             <label for="orderBy">Ordenar por:</label>
-            <select class="controls__button" name="orderBy" id="orderBy">
+            <select class="controls__select" name="orderBy" id="orderBy">
                 <option value="creationDate">Fecha</option>
                 <option value="likes">Likes</option>
             </select>
-            <select name="order" id="order" class="controls__button">
+            <select name="order" id="order" class="controls__select">
                 <option value="ASC">Ascendente</option>
                 <option value="DESC">Descendente</option>
             </select>
         </section>
 
-         <section class="layout-feed">
+        <section class="layout">
             <div id="cards-container" class="layout-feed__cards">
             </div>
         </section> 
     </main>
-
 </body>
 </html>

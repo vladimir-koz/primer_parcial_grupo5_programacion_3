@@ -41,14 +41,13 @@
     --card-actions-gap: var(--space-8);
     --card-actions-margin-top: var(--space-8);
 
-    /* layoout flex */
-    --layout-flex-padding: var(--space-12);
+    /* layout */
+    --layout-padding: var(--space-24);
     --layout-flex-gap: var(--space-16);
     --layout-flex-card-width: 320px;
 
-    /* layout feedd */
+    /* layout feed */
     --layout-feed-gap: 25px;
-    --layout-feed-padding: 20px;
     --layout-feed-max-width: 1200px;
     --layout-feed-media-width: 320px;
     --layout-feed-media-height: 560px;
