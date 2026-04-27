@@ -14,7 +14,7 @@ Proyecto de galería interactiva con tarjetas con likes, ordenamiento y dos layo
 - Maquetado responsivo con Flexbox.
 - Tarjetas con imagen, titulo, descripción y botón de like
 - CSS modular (variables, componentes separados) + sistema de 4px para spacing
-- Dos layouts: grilla (Flex) y feed (por hacer)
+- Dos layouts: grilla y feed (flex).
 - Botones de control: cambiar layout, ordenar por likes, ordenar por fecha
 - Render de tarjetas desde fuente de datos en JS/JSON (sin tocar HTML)
 - Contador de likes con click, persistencia temporal
@@ -205,10 +205,23 @@ UI actualizada
 **Diseño responsive**
 - En mobile se fuerza el layout de feed y se ocultan los botones de cambio de layout.
 
+### Decisión de diseño en mobile
+
+En pantallas chicas preferimos simplificar la interfaz para que sea más clara y fácil de usar.
+
+- Desde **720px** hacia abajo ocultamos los botones que cambian el layout (grilla/feed).
+- Desde **640px** hacia abajo la vista se muestra como un feed en una sola columna.
+- En tamaños muy pequeños (ej. **360px**) reducimos paddings y gaps para que todo siga siendo legible y cómodo de tocar.
+
+La idea fue priorizar la lectura y el scroll vertical: en móviles la diferencia entre grilla y feed es mínima, así que quitamos la opción de cambio de layout y mantuvimos los controles que realmente suman (ordenamiento por fecha/likes).
+
 ### Criterios CSS
-- **Clases CSS**: BEM (`.card__title`, `.card__actions`, etc.)
-- **Espacios**: 4px base (8, 12, 16, 24, 40, 48px)
-- **Variables**: Todo en `variables.css` (colores, sombras, espacios)
+- Usamos variables en `variables.css` para colores, espacios y tamaños.
+- Escala de espacios base 4px (ej.: 8, 12, 16, 24).
+- Nombres de clases claros con BEM (ej.: `.card__title`, `.controls__button`).
+- Pensamos el diseño mobile con breakpoints principales: 360px, 640px, 720px.
+- Preferimos unidades relativas en varias partes para que todo escale bien (ej.: `rem`).
+- Cada componente tiene su CSS en `css/components/` para facilitar cambios.
 
 
 ## Integrantes
@@ -220,6 +233,7 @@ UI actualizada
 - Francisco Jaszczuk
 
 ### Acciones
+
 **Conrado Lanusse**
 - Participé del diseño inicial y del prototipado del proyecto.
 - Cree las funciones base de creacion de nodos, tarjetas y render.
