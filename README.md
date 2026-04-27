@@ -206,11 +206,13 @@ UI actualizada
 
 ### Acciones
 **Conrado Lanusse**
+- Participé del diseño inicial y del prototipado del proyecto.
 - Cree las funciones base de creacion de nodos, tarjetas y render.
 - Agregué documentación y tipados con JSDoc
 - Hice limpieza y refactorización final de scripts.js (orden, referencias, funciones, docs)
 - Eliminé archivos y variables en desuso
-- Agregué documentación del proyecto a README.md
+- Agregué funcion init() con control de render inicial
+- Agregué documentación general del proyecto a README.md
 
 **Laureano Kronemberger**
 - Ordenamiento de cards según fecha o likes.
