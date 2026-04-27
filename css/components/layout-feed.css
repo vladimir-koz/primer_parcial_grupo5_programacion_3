@@ -13,25 +13,35 @@
 }
 
 .layout-feed__cards .card__media {
-    flex: 0 0 var(--layout-feed-media-width);
-    height: var(--layout-feed-media-height);
+    flex: 0 0 40%;
+    max-height: 350px;
+    object-fit: cover;
+    overflow:hidden;
 }
 
 .layout-feed__cards .card__content {
     margin: auto;
     flex: 1;
-    align-items: center;
     max-width: var(--layout-feed-content-max-width);
-    gap: var(--layout-feed-content-gap);
+    align-items: center;
+    gap: var(--space-16);
 }
 
 .layout-feed__cards .card__title {
     align-self: flex-start;
 }
 
+.layout-feed__cards .card {
+    width: 80%;
+}
 
 @media (max-width: 640px) {
     .layout-feed__cards .card {
         flex-basis: 100%;
+        width: 100%;
+    }
+
+    .layout-feed__cards .card__content{
+        gap: var(--space-12);
     }
 }

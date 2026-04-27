@@ -12,3 +12,7 @@
     flex-direction: column;
 }
 
+.layout-flex__cards .card__media {
+    height: 300px;
+}
+
