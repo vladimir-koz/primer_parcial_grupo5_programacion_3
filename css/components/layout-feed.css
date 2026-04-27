@@ -13,8 +13,7 @@
 }
 
 .layout-feed__cards .card__media {
-    flex: 0 0 var(--layout-feed-media-width);
-    height: var(--layout-feed-media-height);
+    flex: 0 0 40%;
 }
 
 .layout-feed__cards .card__content {
@@ -29,9 +28,13 @@
     align-self: flex-start;
 }
 
+.layout-feed__cards .card {
+    width: 80%;
+}
 
 @media (max-width: 640px) {
     .layout-feed__cards .card {
         flex-basis: 100%;
+        width: 100%;
     }
 }

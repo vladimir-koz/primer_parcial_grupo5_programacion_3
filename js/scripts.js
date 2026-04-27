@@ -1,10 +1,28 @@
 import { cards as CARDS } from './data/cards.js'
-
+// Constantes y variables
+const GRID_LAYOUT_STR = "GRID"
+const FEED_LAYOUT_STR = "FEED"
+let layoutType = null
+// DOM
 const CARDS_CONTAINER = document.getElementById("cards-container")
 const GRID_LAYOUT_BTN = document.getElementById("button_grilla")
 const FEED_LAYOUT_BTN = document.getElementById("button_feed")
 const ORDER_BY_BTN = document.getElementById("orderBy")
 const ORDER_BTN = document.getElementById("order")
+
+if (localStorage.getItem("orderBy") != null) ORDER_BY_BTN.value = localStorage.getItem("orderBy");
+if (localStorage.getItem("order") != null) ORDER_BTN.value = localStorage.getItem("order");
+if (localStorage.getItem("layoutType") != null) layoutType = localStorage.getItem("layoutType");
+
+if (layoutType == GRID_LAYOUT_STR) {
+    GRID_LAYOUT_BTN.classList.add('btn_active')
+    FEED_LAYOUT_BTN.classList.remove('btn_active')
+    CARDS_CONTAINER.className = "layout-flex__cards"
+} else if(layoutType == FEED_LAYOUT_STR) {
+    FEED_LAYOUT_BTN.classList.add('btn_active')
+    GRID_LAYOUT_BTN.classList.remove('btn_active')
+    CARDS_CONTAINER.className = "layout-feed__cards"
+}
 
 /**
  * Crea un elemento del DOM a partir de un tag y atributos.
@@ -120,13 +138,20 @@ const renderCards = () => {
     })
 }
 
-ORDER_BTN.addEventListener("change", renderCards)
-ORDER_BY_BTN.addEventListener("change", renderCards)
+ORDER_BTN.addEventListener("change", (e) => {
+    localStorage.setItem("order", e.target.value)
+    renderCards();
+})
+ORDER_BY_BTN.addEventListener("change", (e) => {
+    localStorage.setItem("orderBy", e.target.value)
+    renderCards();
+})
 
 GRID_LAYOUT_BTN.addEventListener("click", () => {
     GRID_LAYOUT_BTN.classList.add('btn_active')
     FEED_LAYOUT_BTN.classList.remove('btn_active')
     CARDS_CONTAINER.className = "layout-flex__cards"
+    localStorage.setItem("layoutType", GRID_LAYOUT_STR)
     renderCards()
 })
 
@@ -134,6 +159,7 @@ FEED_LAYOUT_BTN.addEventListener("click", () => {
     GRID_LAYOUT_BTN.classList.remove('btn_active')
     FEED_LAYOUT_BTN.classList.add('btn_active')
     CARDS_CONTAINER.className = "layout-feed__cards"
+    localStorage.setItem("layoutType", FEED_LAYOUT_STR)
     renderCards()
 })
 
