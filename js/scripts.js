@@ -2,7 +2,7 @@ import { cards as CARDS } from './data/cards.js'
 // Constantes y variables
 const GRID_LAYOUT_STR = "GRID"
 const FEED_LAYOUT_STR = "FEED"
-let layoutType = null
+
 // DOM
 const CARDS_CONTAINER = document.getElementById("cards-container")
 const GRID_LAYOUT_BTN = document.getElementById("button_grilla")
@@ -14,20 +14,6 @@ const CLOSE_MODAL_BTN = document.getElementById("closeModal")
 const MODAL_IMG = document.getElementById("modalImg")
 const MODAL_TITLE = document.getElementById("modalTitle")
 const MODAL_TEXT = document.getElementById("modalText")
-
-if (localStorage.getItem("orderBy") != null) ORDER_BY_BTN.value = localStorage.getItem("orderBy");
-if (localStorage.getItem("order") != null) ORDER_BTN.value = localStorage.getItem("order");
-if (localStorage.getItem("layoutType") != null) layoutType = localStorage.getItem("layoutType");
-
-if (layoutType == GRID_LAYOUT_STR) {
-    GRID_LAYOUT_BTN.classList.add('btn_active')
-    FEED_LAYOUT_BTN.classList.remove('btn_active')
-    CARDS_CONTAINER.className = "layout-flex__cards"
-} else if(layoutType == FEED_LAYOUT_STR) {
-    FEED_LAYOUT_BTN.classList.add('btn_active')
-    GRID_LAYOUT_BTN.classList.remove('btn_active')
-    CARDS_CONTAINER.className = "layout-feed__cards"
-}
 
 /**
  * Crea un elemento del DOM a partir de un tag y atributos.
@@ -205,5 +191,27 @@ FEED_LAYOUT_BTN.addEventListener("click", () => {
     renderCards()
 })
 
-// init
-renderCards()
+/**
+ * Maneja el render inicial del sitio evaluando la persistencia de filtros y layout
+ * @returns {void}
+ */
+const init = () => {
+    const LAYOUT_TYPE_LS = localStorage.getItem("layoutType")
+    const ORDER_BY_LS = localStorage.getItem("orderBy")
+    const ORDER_LS = localStorage.getItem("order")
+
+    if (ORDER_BY_LS) ORDER_BY_BTN.value = ORDER_BY_LS;
+    if (ORDER_LS) ORDER_BTN.value = ORDER_LS;
+
+    if (LAYOUT_TYPE_LS == GRID_LAYOUT_STR) {
+        GRID_LAYOUT_BTN.click()
+    } else if (LAYOUT_TYPE_LS == FEED_LAYOUT_STR) {
+        FEED_LAYOUT_BTN.click()
+    } else {
+        // default status
+        FEED_LAYOUT_BTN.classList.add('btn_active')
+        renderCards()
+    }
+}
+
+init()
