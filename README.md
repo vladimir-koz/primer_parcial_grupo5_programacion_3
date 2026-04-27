@@ -18,8 +18,10 @@ Proyecto de galería interactiva con tarjetas con likes, ordenamiento y dos layo
 - Botones de control: cambiar layout, ordenar por likes, ordenar por fecha
 - Render de tarjetas desde fuente de datos en JS/JSON (sin tocar HTML)
 - Contador de likes con click, persistencia temporal
+- Modal para visualizar tarjeta expandida
 - Ordenamiento dinámico
 - Cambio entre layouts sin recargar
+- Persistencia de estado de layout y filtros
 
 ## Cómo funciona
 
@@ -39,6 +41,7 @@ Si se quiere cambiar contenido o agregar tarjetas, solo se modifica el archivo d
 │   └── components/
 │       ├── card.css          (estilos de tarjeta)
 │       ├── controls.css      (botones de control)
+│       ├── modal.css         (layout modal)
 │       ├── layout.css        (layout global)
 │       ├── layout-flex.css   (contenedor grilla)
 │       ├── layout-feed.css   (contenedor feed)
@@ -105,8 +108,9 @@ Agregar estructura interna:
 - imagen
 - contenido
 - acciones (likes)
-- Manejar interacción (click en botón de like)
-- Cada tarjeta es independiente encapsula su propio comportamiento
+- Manejar interacción de likes (click en botón de like)
+- Manejar interacción con modal (click sobre card)
+- Cada tarjeta es independiente y encapsula su propio comportamiento
 
 **4. Ordenamiento dinámico**
 
@@ -151,8 +155,16 @@ Todos los cambios terminan llamando a renderCards()
 
 **7. Inicialización**
 
+Valida la persistencia de filtros y layout en localStorage y ejecuta render inicial
+
 ```js
-renderCards();
+const init = () => {
+        /* validaciones persistencia */
+
+        renderCards()
+}
+
+init();
 ```
 
 ## Flujo general
@@ -189,6 +201,9 @@ UI actualizada
 **Uso de JSDoc**
 - Tipado sin necesidad de TypeScript
 - Mejora autocompletado y mantenibilidad
+
+**Diseño responsive**
+- En mobile se fuerza el layout de feed y se ocultan los botones de cambio de layout.
 
 ### Criterios CSS
 - **Clases CSS**: BEM (`.card__title`, `.card__actions`, etc.)
