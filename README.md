@@ -29,21 +29,24 @@ Si se quiere cambiar contenido o agregar tarjetas, solo se modifica el archivo d
 ## Estructura del proyecto
 
 ```
+├── .gitignore
+├── README.md
 ├── index.html          (estructura base, JS lo reemplaza)
 ├── css/
 │   ├── style.css       (importa todo)
 │   ├── variables.css   (colores, espacios, sombras)
 │   ├── general.css     (resets, estilos globales)
 │   └── components/
+│       ├── card.css          (estilos de tarjeta)
 │       ├── controls.css      (botones de control)
-│       ├── card.css     (estilos de tarjeta)
-│       ├── layout.css     (layout global)
-│       ├── layout-feed.css     (contenedor feed)
-│       └── layout-flex.css   (contenedor grilla)
+│       ├── layout.css        (layout global)
+│       ├── layout-flex.css   (contenedor grilla)
+│       ├── layout-feed.css   (contenedor feed)
+│       └── layout-mobile.css (reglas responsive unificadas)
 ├── js/
 │   ├── data/
-│   │   ├── cards.js     (cards data source)
-│   └── scripts.js      (main script)
+│   │   └── cards.js         (cards data source)
+│   └── scripts.js           (main script)
 └── assets/
     ├── favicon/
     └── images/
