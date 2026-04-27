@@ -31,8 +31,8 @@
     --card-title-size: clamp(24px, 3vw, 40px);
     --card-title-weight: 500;
     --card-description-size: clamp(16px, 2vw, 20px);
-    --card-like-icon-size: clamp(16px, 2vw, 24px);
-    --card-like-count-size: clamp(16px, 2vw, 24px);
+    --card-like-icon-size: clamp(14px, 2vw, 20px);
+    --card-like-count-size: clamp(14px, 2vw, 20px);
 
     /* espaciado y medidas de card */
     --card-media-height: 360px;
@@ -52,5 +52,4 @@
     --layout-feed-media-width: 320px;
     --layout-feed-media-height: 560px;
     --layout-feed-content-max-width: 300px;
-    --layout-feed-content-gap: var(--space-48);
 }
