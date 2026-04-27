@@ -9,6 +9,11 @@ const GRID_LAYOUT_BTN = document.getElementById("button_grilla")
 const FEED_LAYOUT_BTN = document.getElementById("button_feed")
 const ORDER_BY_BTN = document.getElementById("orderBy")
 const ORDER_BTN = document.getElementById("order")
+const MODAL = document.getElementById("modal")
+const CLOSE_MODAL_BTN = document.getElementById("closeModal")
+const MODAL_IMG = document.getElementById("modalImg")
+const MODAL_TITLE = document.getElementById("modalTitle")
+const MODAL_TEXT = document.getElementById("modalText")
 
 if (localStorage.getItem("orderBy") != null) ORDER_BY_BTN.value = localStorage.getItem("orderBy");
 if (localStorage.getItem("order") != null) ORDER_BTN.value = localStorage.getItem("order");
@@ -53,6 +58,23 @@ const createNode = (tag, attributes = {}) => {
     return element
 }
 
+const openModal = (card) => {
+    MODAL_IMG.src = card.img.url
+    MODAL_IMG.alt = card.img.alt
+    MODAL_TITLE.innerText = card.title
+    MODAL_TEXT.innerText = card.desc
+    MODAL.classList.add("modal-overlay--visible")
+    MODAL.setAttribute("aria-hidden", "false")
+    document.body.classList.add("modal-open")
+    CLOSE_MODAL_BTN.focus()
+}
+
+const closeModal = () => {
+    MODAL.classList.remove("modal-overlay--visible")
+    MODAL.setAttribute("aria-hidden", "true")
+    document.body.classList.remove("modal-open")
+}
+
 /**
  * Crea una tarjeta (article) con contenido y botón de likes.
  * @param {Card} card
@@ -63,7 +85,11 @@ const createNode = (tag, attributes = {}) => {
 const createCard = (card) => {
     const { id, img, title, desc, creationDate, likes } = card
     const article = createNode('article', {
-        id, className: 'card'
+        id,
+        className: 'card',
+        tabIndex: 0,
+        role: 'button',
+        'aria-label': `Abrir publicacion ${title}`
     })
 
     const imgWrapper = createNode('div', { className: 'card__media' })
@@ -98,12 +124,20 @@ const createCard = (card) => {
         innerText: String(likes)
     })
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.stopPropagation()
         card.likes++
         likesCounter.innerText = String(card.likes)
     }
 
     likesButton.addEventListener('click', handleClick)
+    article.addEventListener('click', () => openModal(card))
+    article.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            openModal(card)
+        }
+    })
 
     actionsWrapper.append(likesButton, likesCounter)
     contentWrapper.append(cardTitle, cardDesc, cardDate, actionsWrapper)
@@ -145,6 +179,14 @@ ORDER_BTN.addEventListener("change", (e) => {
 ORDER_BY_BTN.addEventListener("change", (e) => {
     localStorage.setItem("orderBy", e.target.value)
     renderCards();
+})
+
+CLOSE_MODAL_BTN.addEventListener("click", closeModal)
+MODAL.addEventListener("click", (e) => {
+    if (e.target === MODAL) closeModal()
+})
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal()
 })
 
 GRID_LAYOUT_BTN.addEventListener("click", () => {
