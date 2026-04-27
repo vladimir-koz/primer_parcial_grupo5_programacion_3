@@ -233,7 +233,8 @@ UI actualizada
 - Aportó en la primera idea del layout feed, ayudando a definir cómo se iba a mostrar la información de forma más cómoda y ordenada.
 
 **Francisco Jaszczuk**
-- Participó del maquetado inicial junto con el equipo y aportó ideas en la construcción de la vista general.
-- También trabajó en los primeros ajustes del layout feed, acompañando la definición visual antes de que quedara la estructura final.
-- Colaboró en esa etapa inicial donde varias ideas se fueron probando hasta quedarnos con la organización de layout que mejor funcionaba.
+- Participe del maquetado inicial junto con el equipo y aporte ideas en la construcción de la vista general.
+- También trabaje en los primeros ajustes del layout feed, acompañando la definición visual antes de que quedara la estructura final.
+- Colabore en esa etapa inicial donde varias ideas se fueron probando hasta quedarnos con la organización de layout que mejor funcionaba.
+- Agregue un modal reutilizable para ver cada publicación ampliada. En el HTML deje una estructura vacía con una imagen, un título y una descripción. En JS capturamos esos elementos y cree dos funciones: openModal, que carga los datos de la card seleccionada y muestra el modal, y closeModal, que lo oculta. Cada card ahora tiene un evento click que llama a openModal(card). Además, use stopPropagation en el botón de like para que al dar like no se abra el modal. En CSS use un overlay fijo con backdrop-filter: blur(10px) para desenfocar el fondo y una card modal centrada con diseño responsive
 
