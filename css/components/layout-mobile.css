@@ -11,15 +11,9 @@
     }
 
     .controls {
-        width: fit-content;
-        max-width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
-    }
-
-    .controls__button {
-        font-size: 14px;
     }
 
     .layout-flex__cards,
@@ -32,7 +26,7 @@
         flex-direction: row;
         flex-basis: 100%;
         align-items: stretch;
-        max-width: 100%;
+        width: 100%;
     }
 
     .layout-flex__cards .card__media,
@@ -48,6 +42,7 @@
         max-width: 100%;
         align-items: flex-start;
         padding: var(--space-8);
+        gap: var(--space-12);
     }
 
     .layout-flex__cards .card__title,
@@ -67,14 +62,12 @@
     .controls__select {
         flex: 1 1 calc(50% - var(--space-8));
         min-width: 0;
-        font-size: 14px;
-        padding: 6px var(--space-8);
+        padding: var(--space-8);
     }
 
     .controls label {
         flex: 1 1 100%;
         text-align: center;
-        font-size: 14px;
     }
 
     .layout {
@@ -95,11 +88,7 @@
     }
 
     .card__title {
-        font-size: clamp(20px, 8vw, 26px);
-    }
-
-    .card__description {
-        font-size: 15px;
+        font-size: clamp(20px, 8vw, 28px);
     }
 
     .card__actions {
@@ -108,12 +97,11 @@
     }
 
     .card__like-button {
-        width: 40px;
-        height: 40px;
+        width: var(--space-40);
+        height: var(--space-40);
     }
 
     .card__likes-count {
         padding: var(--space-8);
-        font-size: 15px;
     }
 }
