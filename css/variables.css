@@ -1,0 +1,58 @@
+:root {
+    --color-background: #f5f7fc;
+    --color-text: #1a1d2e;
+    --color-text-soft: #6b7280;
+    --color-accent: #ff6b6b;
+    --color-accent-dark: #ff5252;
+    --color-border: #e5e7eb;
+    --shadow-accent: 0 8px 20px rgba(255, 107, 107, 0.28);
+
+    /* tipografía general */
+    --font-base: "Bebas Neue", sans-serif;
+    --font-base-size: 16px;
+    --font-base-weight: 400;
+    --font-base-line-height: 1.4;
+
+    --font-size-md: 16px;
+    --font-size-lg: 20px;
+
+    --space-8: 8px;
+    --space-12: 12px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-40: 40px;
+    --space-48: 48px;
+
+    --radius-8: 8px;
+    --radius-12: 12px;
+    --radius-full: 1000px;
+
+    /* tipografía de card */
+    --card-title-size: clamp(24px, 3vw, 40px);
+    --card-title-weight: 500;
+    --card-description-size: clamp(16px, 2vw, 20px);
+    --card-like-icon-size: clamp(16px, 2vw, 20px);
+    --card-like-count-size: clamp(16px, 2vw, 20px);
+
+    /* espaciado y medidas de card */
+    --card-media-height: 304px;
+    --card-media-width-mobile: 120px;
+    --card-media-min-height-mobile: 180px;
+    --card-media-width-mobile-sm: 96px;
+    --card-media-min-height-mobile-sm: 160px;
+    --card-content-padding: var(--space-12);
+    --card-content-gap: var(--space-8);
+    --card-actions-gap: var(--space-8);
+    --card-actions-margin-top: var(--space-8);
+
+    /* layout */
+    --layout-padding: var(--space-24);
+    --layout-flex-gap: var(--space-16);
+    --layout-flex-card-width: 320px;
+
+    /* layout feed */
+    --layout-feed-gap: 24px;
+    --layout-feed-max-width: 1200px;
+    --layout-feed-card-width: 80%;
+    --layout-feed-content-max-width: 304px;
+}

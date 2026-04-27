@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-base);
+    font-size: var(--font-base-size);
+    font-weight: var(--font-base-weight);
+    line-height: var(--font-base-line-height);
+}
+
+main {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: var(--space-24) var(--space-16) var(--space-40);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+@media (max-width: 640px) {
+    main {
+        padding-left: var(--space-12);
+        padding-right: var(--space-12);
+        padding-top: var(--space-16);
+    }
+}
+
+button {
+    font: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    color: inherit;
+}

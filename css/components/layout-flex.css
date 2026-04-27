@@ -1,0 +1,18 @@
+.layout-flex__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--layout-flex-gap);
+}
+
+.layout-flex__cards .card {
+    flex: 0 0 var(--layout-flex-card-width);
+    max-width: var(--layout-flex-card-width);
+    flex-direction: column;
+}
+
+.layout-flex__cards .card__media {
+    height: var(--card-media-height);
+}
+
