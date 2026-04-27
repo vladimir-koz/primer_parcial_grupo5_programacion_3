@@ -198,3 +198,8 @@ UI actualizada
 - Hice limpieza y refactorización final de scripts.js (orden, referencias, funciones, docs)
 - Eliminé archivos y variables en desuso
 - Agregué documentación del proyecto a README.md
+
+**Laureano Kronemberger**
+- Ordenamiento de cards según fecha o likes.
+- Retoque de estilos y media queries para diseño responsive.
+- Manejo de eventos JS.
