@@ -25,17 +25,21 @@
 
     --radius-8: 8px;
     --radius-12: 12px;
-    --radius-full: 999px;
+    --radius-full: 1000px;
 
     /* tipografía de card */
     --card-title-size: clamp(24px, 3vw, 40px);
     --card-title-weight: 500;
     --card-description-size: clamp(16px, 2vw, 20px);
-    --card-like-icon-size: clamp(14px, 2vw, 20px);
-    --card-like-count-size: clamp(14px, 2vw, 20px);
+    --card-like-icon-size: clamp(16px, 2vw, 20px);
+    --card-like-count-size: clamp(16px, 2vw, 20px);
 
     /* espaciado y medidas de card */
-    --card-media-height: 360px;
+    --card-media-height: 304px;
+    --card-media-width-mobile: 120px;
+    --card-media-min-height-mobile: 180px;
+    --card-media-width-mobile-sm: 96px;
+    --card-media-min-height-mobile-sm: 160px;
     --card-content-padding: var(--space-12);
     --card-content-gap: var(--space-8);
     --card-actions-gap: var(--space-8);
@@ -47,9 +51,8 @@
     --layout-flex-card-width: 320px;
 
     /* layout feed */
-    --layout-feed-gap: 25px;
+    --layout-feed-gap: 24px;
     --layout-feed-max-width: 1200px;
-    --layout-feed-media-width: 320px;
-    --layout-feed-media-height: 560px;
-    --layout-feed-content-max-width: 300px;
+    --layout-feed-card-width: 80%;
+    --layout-feed-content-max-width: 304px;
 }

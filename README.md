@@ -2,6 +2,11 @@
 
 Proyecto de galería interactiva con tarjetas con likes, ordenamiento y dos layouts diferentes (grilla y feed).
 
+## Esquema de datos y layout
+<p align="center">
+  <img src="./assets/images/esquema-datos-layout.png" alt="Esquema de datos y layout" width="800">
+</p>
+
 ## Qué está hecho
 
 **Estructura base (HTML + CSS) + Javascript**
@@ -24,21 +29,24 @@ Si se quiere cambiar contenido o agregar tarjetas, solo se modifica el archivo d
 ## Estructura del proyecto
 
 ```
+├── .gitignore
+├── README.md
 ├── index.html          (estructura base, JS lo reemplaza)
 ├── css/
 │   ├── style.css       (importa todo)
 │   ├── variables.css   (colores, espacios, sombras)
 │   ├── general.css     (resets, estilos globales)
 │   └── components/
+│       ├── card.css          (estilos de tarjeta)
 │       ├── controls.css      (botones de control)
-│       ├── card.css     (estilos de tarjeta)
-│       ├── layout.css     (layout global)
-│       ├── layout-feed.css     (contenedor feed)
-│       └── layout-flex.css   (contenedor grilla)
+│       ├── layout.css        (layout global)
+│       ├── layout-flex.css   (contenedor grilla)
+│       ├── layout-feed.css   (contenedor feed)
+│       └── layout-mobile.css (reglas responsive unificadas)
 ├── js/
 │   ├── data/
-│   │   ├── cards.js     (cards data source)
-│   └── scripts.js      (main script)
+│   │   └── cards.js         (cards data source)
+│   └── scripts.js           (main script)
 └── assets/
     ├── favicon/
     └── images/
@@ -204,3 +212,20 @@ UI actualizada
 - Ordenamiento de cards según fecha o likes.
 - Retoque de estilos y media queries para diseño responsive.
 - Manejo de eventos JS.
+**Vladimir Kozik**
+- Participe en el armado de la estructura inicial del proyecto y dejé el README base para empezar a documentar el trabajo.
+- Agregué los assets y los archivos iniciales de CSS y JavaScript para poder arrancar con la galería.
+- Participé en la base HTML de la grilla con las primeras cards para tener una vista inicial del proyecto.
+- Organicé el CSS modular con Flexbox y variables para separar mejor los estilos y no repetir valores.
+- Dejé la barra de controles fija al hacer scroll para mejorar la navegación dentro de la página.
+
+**Santino Aloisio**
+- Participó desde el maquetado inicial, pensando la lógica general del proyecto y ayudando a ordenar cómo iba a funcionar la vista.
+- Separó la lógica de datos en el archivo `cards.js`, dejando más clara la división entre contenido y estructura.
+- Aportó en la primera idea del layout feed, ayudando a definir cómo se iba a mostrar la información de forma más cómoda y ordenada.
+
+**Francisco Jaszczuk**
+- Participó del maquetado inicial junto con el equipo y aportó ideas en la construcción de la vista general.
+- También trabajó en los primeros ajustes del layout feed, acompañando la definición visual antes de que quedara la estructura final.
+- Colaboró en esa etapa inicial donde varias ideas se fueron probando hasta quedarnos con la organización de layout que mejor funcionaba.
+

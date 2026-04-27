@@ -10,11 +10,12 @@
 .layout-feed__cards .card {
     flex-direction: row;
     align-items: stretch;
+    width: var(--layout-feed-card-width);
 }
 
 .layout-feed__cards .card__media {
     flex: 0 0 40%;
-    max-height: 350px;
+    max-height: 352px;
     object-fit: cover;
     overflow:hidden;
 }
@@ -29,19 +30,4 @@
 
 .layout-feed__cards .card__title {
     align-self: flex-start;
-}
-
-.layout-feed__cards .card {
-    width: 80%;
-}
-
-@media (max-width: 640px) {
-    .layout-feed__cards .card {
-        flex-basis: 100%;
-        width: 100%;
-    }
-
-    .layout-feed__cards .card__content{
-        gap: var(--space-12);
-    }
 }
