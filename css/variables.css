@@ -36,6 +36,10 @@
 
     /* espaciado y medidas de card */
     --card-media-height: 360px;
+    --card-media-width-mobile: 120px;
+    --card-media-min-height-mobile: 180px;
+    --card-media-width-mobile-sm: 100px;
+    --card-media-min-height-mobile-sm: 160px;
     --card-content-padding: var(--space-12);
     --card-content-gap: var(--space-8);
     --card-actions-gap: var(--space-8);

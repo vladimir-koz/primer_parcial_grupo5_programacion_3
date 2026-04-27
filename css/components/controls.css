@@ -67,13 +67,7 @@
     box-shadow: var(--shadow-accent);
 }
 
-@media (max-width: 640px) {
-    .controls{
-        flex-direction: row;
-        flex-wrap: nowrap;
-    }
-    .controls__button{
-        font-size: var(--font-size-md);
-    }
-
+.controls__select:focus-visible {
+    outline: 2px solid rgba(31, 37, 64, 0.35);
+    outline-offset: 2px;
 }

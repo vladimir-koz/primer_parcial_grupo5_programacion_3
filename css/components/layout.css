@@ -1,16 +1,3 @@
 .layout {
     padding: var(--layout-padding);
 }
-
-@media (max-width: 640px) {
-    .layout {
-        padding: var(--space-8);
-    }
-}
-/*oculto los botones ya que en mobile dejamos un solo layout en columna*/
-@media (max-width: 720px) {
-    .controls__button:nth-child(1),
-    .controls__button:nth-child(2) {
-        display: none;
-    }
-}

@@ -1,0 +1,119 @@
+/*oculto los botones ya que en mobile dejamos un solo layout en columna*/
+@media (max-width: 720px) {
+    .controls__button:nth-child(1),
+    .controls__button:nth-child(2) {
+        display: none;
+    }
+}
+@media (max-width: 640px) {
+    .layout {
+        padding: var(--space-8);
+    }
+
+    .controls {
+        width: fit-content;
+        max-width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .controls__button {
+        font-size: 14px;
+    }
+
+    .layout-flex__cards,
+    .layout-feed__cards {
+        gap: var(--space-12);
+    }
+
+    .layout-flex__cards .card,
+    .layout-feed__cards .card {
+        flex-direction: row;
+        flex-basis: 100%;
+        align-items: stretch;
+        max-width: 100%;
+    }
+
+    .layout-flex__cards .card__media,
+    .layout-feed__cards .card__media {
+        width: var(--card-media-width-mobile);
+        flex: 0 0 var(--card-media-width-mobile);
+        height: auto;
+        min-height: var(--card-media-min-height-mobile);
+    }
+
+    .layout-flex__cards .card__content,
+    .layout-feed__cards .card__content {
+        max-width: 100%;
+        align-items: flex-start;
+        padding: var(--space-8);
+    }
+
+    .layout-flex__cards .card__title,
+    .layout-feed__cards .card__title {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 360px) {
+    .controls {
+        top: var(--space-8);
+        padding: var(--space-8);
+        gap: var(--space-8);
+    }
+
+    .controls__button,
+    .controls__select {
+        flex: 1 1 calc(50% - var(--space-8));
+        min-width: 0;
+        font-size: 14px;
+        padding: 6px var(--space-8);
+    }
+
+    .controls label {
+        flex: 1 1 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .layout {
+        padding: var(--space-8) 0;
+    }
+
+    .layout-flex__cards .card__media,
+    .layout-feed__cards .card__media {
+        width: var(--card-media-width-mobile-sm);
+        flex-basis: var(--card-media-width-mobile-sm);
+        min-height: var(--card-media-min-height-mobile-sm);
+    }
+
+    .layout-flex__cards .card__content,
+    .layout-feed__cards .card__content {
+        padding: var(--space-8);
+        gap: var(--space-8);
+    }
+
+    .card__title {
+        font-size: clamp(20px, 8vw, 26px);
+    }
+
+    .card__description {
+        font-size: 15px;
+    }
+
+    .card__actions {
+        width: 100%;
+        gap: var(--space-8);
+    }
+
+    .card__like-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card__likes-count {
+        padding: var(--space-8);
+        font-size: 15px;
+    }
+}
