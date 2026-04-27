@@ -31,7 +31,7 @@ Si se quiere cambiar contenido o agregar tarjetas, solo se modifica el archivo d
 ```
 ├── .gitignore
 ├── README.md
-├── index.html          (estructura base, JS lo reemplaza)
+├── index.html          (JS renderiza las cards)
 ├── css/
 │   ├── style.css       (importa todo)
 │   ├── variables.css   (colores, espacios, sombras)
@@ -45,8 +45,8 @@ Si se quiere cambiar contenido o agregar tarjetas, solo se modifica el archivo d
 │       └── layout-mobile.css (reglas responsive unificadas)
 ├── js/
 │   ├── data/
-│   │   └── cards.js         (cards data source)
-│   └── scripts.js           (main script)
+│   │   └── cards.js         (cards data)
+│   └── scripts.js           (script central)
 └── assets/
     ├── favicon/
     └── images/
@@ -182,6 +182,10 @@ UI actualizada
 - Lógica → scripts.js
 - Estilos → CSS modular
 
+**Persistencia**
+- La app guarda en localStorage el layout elegido (GRID o FEED) y las preferencias de orden (orderBy y order).
+- Los likes no se persisten, se actualizan en memoria durante la sesión y vuelven a su valor inicial al refrescar.
+
 **Uso de JSDoc**
 - Tipado sin necesidad de TypeScript
 - Mejora autocompletado y mantenibilidad
@@ -212,6 +216,8 @@ UI actualizada
 - Ordenamiento de cards según fecha o likes.
 - Retoque de estilos y media queries para diseño responsive.
 - Manejo de eventos JS.
+- Implementacion de persistencia localStorage para el criterio de orden (orderBy), la dirección del orden (order) y el layout seleccionado (layoutType).
+  
 **Vladimir Kozik**
 - Participe en el armado de la estructura inicial del proyecto y dejé el README base para empezar a documentar el trabajo.
 - Agregué los assets y los archivos iniciales de CSS y JavaScript para poder arrancar con la galería.
